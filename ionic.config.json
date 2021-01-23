@@ -1,0 +1,7 @@
+{
+  "name": "csgotracker",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
