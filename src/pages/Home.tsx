@@ -49,13 +49,13 @@ const Home: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>TROLHA</IonTitle>
+          <IonTitle>CSGO Companion</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">TROLHA</IonTitle>
+            <IonTitle size="large">CSGO Companion</IonTitle>
           </IonToolbar>
         </IonHeader>
         <IonList>

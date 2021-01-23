@@ -20,7 +20,10 @@ const MissionItem: React.FC<MissionItemProps> = (props) => {
                 {/* <IonButton slot="start">
                 Start
                 </IonButton> */}
-                <IonLabel>{props.title}</IonLabel>
+                <IonLabel>
+                    <h2>{props.title}</h2>
+                    <p>{props.description}</p>
+                </IonLabel>
                 {/* <IonButton slot="end">
                 End
           </IonButton> */}
@@ -65,7 +68,7 @@ const MissionItem: React.FC<MissionItemProps> = (props) => {
                 {/* <IonButton slot="end">
             End
       </IonButton> */}
-                <IonRange min={0} max={props.stars} step={1} snaps={true} color="warning" mode="ios" ticks={false} />
+                <IonRange min={0} max={props.stars} step={1} snaps={true} ticks={false} mode="md" />
             </IonItem >
         </div>
 
