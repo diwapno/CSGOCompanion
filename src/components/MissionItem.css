@@ -11,9 +11,9 @@
 ion-range {
 
     
-    --knob-background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'%3E%3Ctitle%3EStar%3C/title%3E%3Cpath d='M394 480a16 16 0 01-9.39-3L256 383.76 127.39 477a16 16 0 01-24.55-18.08L153 310.35 23 221.2a16 16 0 019-29.2h160.38l48.4-148.95a16 16 0 0130.44 0l48.4 149H480a16 16 0 019.05 29.2L359 310.35l50.13 148.53A16 16 0 01394 480z' style='fill:%23ffe100;stroke:%23706300;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px;' /%3E%3C/svg%3E");
+    --knob-background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'%3E%3Ctitle%3EStar%3C/title%3E%3Cpath d='M394 480a16 16 0 01-9.39-3L256 383.76 127.39 477a16 16 0 01-24.55-18.08L153 310.35 23 221.2a16 16 0 019-29.2h160.38l48.4-148.95a16 16 0 0130.44 0l48.4 149H480a16 16 0 019.05 29.2L359 310.35l50.13 148.53A16 16 0 01394 480z' style='fill:%23ffc240;stroke:%23916f00;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px;' /%3E%3C/svg%3E");
     --bar-background: #706300;
-    --bar-background-active: #ffe000;
+    --bar-background-active: #ffc400;
     --knob-size: 32px;
 }
 
@@ -21,8 +21,8 @@ ion-range {
 
     /* transform: scale(1.33); */
     font-size: 20px;
-    fill: #ffe100;
-    color:#706300;
+    fill: #ffc240;
+    color:#916f00;
     stroke-linecap:round;
     stroke-linejoin:round;
     stroke-width:32px;

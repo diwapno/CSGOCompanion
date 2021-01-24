@@ -7,7 +7,8 @@ interface MissionItemProps {
 
     title?: string;
     description?: string;
-    stars?: number;
+    missionStars?: number;
+    selectedStars?: number;
 }
 const MissionItem: React.FC<MissionItemProps> = (props) => {
     return (
@@ -23,14 +24,14 @@ const MissionItem: React.FC<MissionItemProps> = (props) => {
                     <IonRow>
                         <IonCol>
                             <div className="ion-text-end">
-                                {props.stars && props.stars === 3 &&
+                                {props.missionStars && props.missionStars === 3 &&
                                     <IonIcon className="star" icon={star}></IonIcon>
                                 }
                             </div>
                         </IonCol>
                         <IonCol>
                             <div className="ion-text-end">
-                                {props.stars && props.stars === 3 &&
+                                {props.missionStars && props.missionStars === 3 &&
                                     <IonIcon className="star" icon={star}></IonIcon>
                                 }
                             </div>
@@ -38,7 +39,7 @@ const MissionItem: React.FC<MissionItemProps> = (props) => {
                         <IonCol>
                             <div className="ion-text-end">
                                 <IonIcon className="star" icon={star}></IonIcon>
-                                {props.stars && props.stars === 1 &&
+                                {props.missionStars && props.missionStars === 1 &&
                                     <IonIcon className="star" icon={star}></IonIcon>
                                 }
                             </div>
@@ -47,9 +48,9 @@ const MissionItem: React.FC<MissionItemProps> = (props) => {
                 </IonGrid>
             </IonItem>
             <IonItem>
-                <IonRange min={0} max={props.stars} step={1} snaps={true} ticks={false} mode="md" />
+                <IonRange value={props.selectedStars} min={0} max={props.missionStars} step={1} snaps={true} ticks={false} mode="md" />
             </IonItem >
-        </div>
+        </div >
 
     );
 };

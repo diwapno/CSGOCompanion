@@ -9,6 +9,7 @@ interface Mission {
   title: string;
   description?: string;
   stars?: number;
+  selectedStars?: number;
 }
 
 const Home: React.FC = () => {
@@ -16,32 +17,38 @@ const Home: React.FC = () => {
     {
       title: "Mission 1",
       description: "whatever",
-      stars: 1
+      stars: 1,
+      selectedStars: 1
     },
     {
       title: "Mission 2",
       description: "whatever",
-      stars: 3
+      stars: 3,
+      selectedStars: 1
     },
     {
       title: "Mission 3",
       description: "whatever",
-      stars: 1
+      stars: 1,
+      selectedStars: 0
     },
     {
       title: "Mission 4",
       description: "whatever",
-      stars: 1
+      stars: 3,
+      selectedStars: 2
     },
     {
       title: "Mission 5",
       description: "whatever",
-      stars: 3
+      stars: 3,
+      selectedStars: 0
     },
     {
       title: "Mission 6",
       description: "whatever",
-      stars: 3
+      stars: 3,
+      selectedStars: 0
     },];
 
 
@@ -59,7 +66,7 @@ const Home: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <IonList>
-          {missions.map((mission) => <MissionItem title={mission.title} description={mission.description} stars={mission.stars} />)}
+          {missions.map((mission) => <MissionItem title={mission.title} description={mission.description} missionStars={mission.stars} selectedStars={mission.selectedStars} />)}
         </IonList>
       </IonContent>
     </IonPage>
