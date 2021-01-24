@@ -1,55 +1,31 @@
 import { IonContent, IonHeader, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import MissionTrackerItem from '../components/MissionTrackerItem';
 import './Home.css';
-
-interface Mission {
-
-  title: string;
-  description?: string;
-  stars?: number;
-  selectedStars?: number;
-}
+import { Mission } from '../models/Mission';
+import { getMissions } from '../services/firestore';
 
 const Home: React.FC = () => {
-  const missions: Mission[] = [
-    {
-      title: "Mission 1",
-      description: "whatever",
-      stars: 1,
-      selectedStars: 1
-    },
-    {
-      title: "Mission 2",
-      description: "whatever",
-      stars: 3,
-      selectedStars: 1
-    },
-    {
-      title: "Mission 3",
-      description: "whatever",
-      stars: 1,
-      selectedStars: 0
-    },
-    {
-      title: "Mission 4",
-      description: "whatever",
-      stars: 3,
-      selectedStars: 2
-    },
-    {
-      title: "Mission 5",
-      description: "whatever",
-      stars: 3,
-      selectedStars: 0
-    },
-    {
-      title: "Mission 6",
-      description: "whatever",
-      stars: 3,
-      selectedStars: 0
-    },];
+  const [missions, setMissions] = useState<Mission[]>([]);
 
+  useEffect(() => {
+
+    loadData();
+  }, [])
+
+  const loadData = async () => {
+
+    //set loading true error false
+    try {
+      const response = await getMissions();
+      setMissions(response);
+    } catch (error) {
+      //Set Error state
+    }
+    //set loading files
+
+
+  }
 
   return (
     <IonPage>
@@ -65,7 +41,7 @@ const Home: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <IonList>
-          {missions.map((mission) => <MissionTrackerItem title={mission.title} description={mission.description} missionStars={mission.stars} selectedStars={mission.selectedStars} />)}
+          {missions.map((mission) => <MissionTrackerItem key={mission.title} title={mission.title} description={mission.description} missionStars={mission.stars} selectedStars={mission.selectedStars ?? 0} />)}
         </IonList>
       </IonContent>
     </IonPage>
