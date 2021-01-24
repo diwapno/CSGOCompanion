@@ -1,4 +1,4 @@
-import { IonButton, IonCol, IonContent, IonGrid, IonIcon, IonInput, IonItem, IonLabel, IonProgressBar, IonRange, IonRow } from '@ionic/react';
+import { IonCol, IonGrid, IonIcon, IonItem, IonLabel, IonRange, IonRow } from '@ionic/react';
 import { star } from 'ionicons/icons'
 import React from 'react';
 import './MissionItem.css';

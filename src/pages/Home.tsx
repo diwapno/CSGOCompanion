@@ -1,5 +1,4 @@
 import { IonContent, IonHeader, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import { attachProps } from '@ionic/react/dist/types/components/utils';
 import React from 'react';
 import MissionItem from '../components/MissionItem';
 import './Home.css';
