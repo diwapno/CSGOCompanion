@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonBadge, IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from '@ionic/react';
+import { IonApp, IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
 
@@ -22,28 +22,27 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import { star, personCircle, map, informationCircle } from 'ionicons/icons';
+import { map, informationCircle, calendar, time } from 'ionicons/icons';
 
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-          <Route path="/home" component={Home} exact={true} />
-          <Route path="/tab2" component={Home} exact={true} />
+          <Route path="/thisweek" component={Home} exact={true} />
+          <Route path="/missiontracker" component={Home} exact={true} />
           <Route path="/tab3" component={Home} />
-          <Route exact path="/" render={() => <Redirect to="/home" />} />
+          <Route exact path="/" render={() => <Redirect to="/thisweek" />} />
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
-          <IonTabButton tab="home" href="/home">
-            <IonIcon icon={star} />
-            <IonLabel>Tab 1</IonLabel>
-            <IonBadge>6</IonBadge>
+          <IonTabButton tab="thisweek" href="/thisweek">
+            <IonIcon icon={time} />
+            <IonLabel>Most Recent</IonLabel>
           </IonTabButton>
 
-          <IonTabButton tab="speakers" href="/tab2">
-            <IonIcon icon={personCircle} />
-            <IonLabel>Speakers</IonLabel>
+          <IonTabButton tab="missionTracker" href="/missiontracker">
+            <IonIcon icon={calendar} />
+            <IonLabel>Mission Tracker</IonLabel>
           </IonTabButton>
 
           <IonTabButton tab="map" href="/tab3">

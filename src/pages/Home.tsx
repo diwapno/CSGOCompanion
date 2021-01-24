@@ -1,6 +1,6 @@
 import { IonContent, IonHeader, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import React from 'react';
-import MissionItem from '../components/MissionItem';
+import MissionTrackerItem from '../components/MissionTrackerItem';
 import './Home.css';
 
 interface Mission {
@@ -65,7 +65,7 @@ const Home: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <IonList>
-          {missions.map((mission) => <MissionItem title={mission.title} description={mission.description} missionStars={mission.stars} selectedStars={mission.selectedStars} />)}
+          {missions.map((mission) => <MissionTrackerItem title={mission.title} description={mission.description} missionStars={mission.stars} selectedStars={mission.selectedStars} />)}
         </IonList>
       </IonContent>
     </IonPage>
