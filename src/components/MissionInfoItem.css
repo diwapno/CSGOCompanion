@@ -1,0 +1,20 @@
+.container_row1 {
+
+    position: relative;   
+}
+
+.container_row2 {
+
+    position: relative;   
+}
+
+.star {
+
+    /* transform: scale(1.33); */
+    font-size: 20px;
+    fill: #ffc240;
+    color:#916f00;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    stroke-width:32px;
+}

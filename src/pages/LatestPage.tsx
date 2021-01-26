@@ -1,11 +1,11 @@
 import { IonContent, IonHeader, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import React, { useEffect, useState } from 'react';
-import MissionTrackerItem from '../components/MissionTrackerItem';
-import './Home.css';
+import MissionInfoItem from '../components/MissionInfoItem';
+import './LatestPage.css';
 import { Mission } from '../models/Mission';
 import { getMissions } from '../services/firestore';
 
-const Home: React.FC = () => {
+const LatestPage: React.FC = () => {
   const [missions, setMissions] = useState<Mission[]>([]);
 
   useEffect(() => {
@@ -23,8 +23,6 @@ const Home: React.FC = () => {
       //Set Error state
     }
     //set loading files
-
-
   }
 
   return (
@@ -41,11 +39,19 @@ const Home: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <IonList>
-          {missions.map((mission) => <MissionTrackerItem key={mission.title} title={mission.title} description={mission.description} missionStars={mission.stars} selectedStars={mission.selectedStars ?? 0} />)}
+          {missions.map((mission) => <MissionInfoItem key={mission.title}
+            title={mission.title}
+            description={mission.description}
+            stars={mission.stars}
+            step1={mission.step1}
+            step2={mission.step2}
+            step3={mission.step3}
+            week={mission.week}
+            selectedStars={mission.selectedStars ?? 0} />)}
         </IonList>
       </IonContent>
     </IonPage>
   );
 };
 
-export default Home;
+export default LatestPage;

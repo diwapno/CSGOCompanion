@@ -2,7 +2,7 @@ import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import Home from './pages/Home';
+import LatestPage from './pages/LatestPage';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -29,20 +29,20 @@ const App: React.FC = () => (
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-          <Route path="/thisweek" component={Home} exact={true} />
-          <Route path="/missiontracker" component={Home} exact={true} />
-          <Route path="/tab3" component={Home} />
-          <Route exact path="/" render={() => <Redirect to="/thisweek" />} />
+          <Route path="/latest" component={LatestPage} exact={true} />
+          <Route path="/allmissions" component={LatestPage} exact={true} />
+          <Route path="/tab3" component={LatestPage} />
+          <Route exact path="/" render={() => <Redirect to="/latest" />} />
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
-          <IonTabButton tab="thisweek" href="/thisweek">
+          <IonTabButton tab="latest" href="/latest">
             <IonIcon icon={time} />
-            <IonLabel>Most Recent</IonLabel>
+            <IonLabel>Latest</IonLabel>
           </IonTabButton>
 
-          <IonTabButton tab="missionTracker" href="/missiontracker">
+          <IonTabButton tab="allmissions" href="/allmissions">
             <IonIcon icon={calendar} />
-            <IonLabel>Mission Tracker</IonLabel>
+            <IonLabel>All Missions</IonLabel>
           </IonTabButton>
 
           <IonTabButton tab="map" href="/tab3">
