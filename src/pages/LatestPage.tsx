@@ -29,13 +29,13 @@ const LatestPage: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>CSGO Companion</IonTitle>
+          <IonTitle>CSGO Pet</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">CSGO Companion</IonTitle>
+            <IonTitle size="large">CSGO Pet</IonTitle>
           </IonToolbar>
         </IonHeader>
         <IonList>
