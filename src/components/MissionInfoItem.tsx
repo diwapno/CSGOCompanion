@@ -2,7 +2,7 @@ import { IonCol, IonGrid, IonIcon, IonItem, IonLabel, IonRow } from '@ionic/reac
 import { star } from 'ionicons/icons'
 import React from 'react';
 import { Mission } from '../models/Mission';
-import './MissionTrackerItem.css';
+import './MissionInfoItem.css';
 
 const MissionInfoItem: React.FC<Mission> = (props) => {
 
