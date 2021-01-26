@@ -38,7 +38,7 @@ const LatestPage: React.FC = () => {
             <IonTitle size="large">CSGO Pet</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <IonList>
+        <IonList className="center">
           {missions.map((mission) => <MissionInfoItem key={mission.title}
             title={mission.title}
             description={mission.description}
@@ -50,7 +50,7 @@ const LatestPage: React.FC = () => {
             selectedStars={mission.selectedStars ?? 0} />)}
         </IonList>
       </IonContent>
-    </IonPage>
+    </IonPage >
   );
 };
 
