@@ -50,8 +50,7 @@ const MissionInfoItem: React.FC<Mission> = (props) => {
                             <div className="ion-text-end">
                                 <IonIcon className="star" icon={star}></IonIcon>
                                 {props.stars && props.stars === 1
-                                    ?
-                                    <><IonIcon className="star" icon={star}></IonIcon>
+                                    ? <><IonIcon className="star" icon={star}></IonIcon>
                                         <IonLabel style={{ paddingRight: (textPadding(props.step1) + 10) }}><p>{props.step1}</p></IonLabel></>
                                     : props.step3 && <IonLabel style={{ paddingRight: (textPadding(props.step3)) }}><p>{props.step3}</p></IonLabel>
                                 }

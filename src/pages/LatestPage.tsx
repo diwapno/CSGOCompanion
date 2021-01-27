@@ -4,6 +4,8 @@ import MissionInfoItem from '../components/MissionInfoItem';
 import './LatestPage.css';
 import { Mission } from '../models/Mission';
 import { getMissions } from '../services/firestore';
+import { getWeekMissions } from '../services/firestore';
+
 
 const LatestPage: React.FC = () => {
   const [missions, setMissions] = useState<Mission[]>([]);
@@ -17,7 +19,7 @@ const LatestPage: React.FC = () => {
 
     //set loading true error false
     try {
-      const response = await getMissions();
+      const response = await getWeekMissions(1);
       setMissions(response);
     } catch (error) {
       //Set Error state

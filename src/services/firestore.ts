@@ -18,5 +18,9 @@ export const getMissions = async () => {
     return querySnapshot.docs.map((doc) => doc.data()) as Mission[];
 }
 
+export const getWeekMissions = async (week: number) => {
+    const querySnapshot = await db.collection("missions").where("week", "==", week).get();
+    return querySnapshot.docs.map((doc) => doc.data()) as Mission[];
+}
 
 // setMissions(querySnapshot.docs.map((doc) => doc.data()) as Mission[])
