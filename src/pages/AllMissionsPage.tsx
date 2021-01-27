@@ -1,10 +1,8 @@
-import { IonContent, IonHeader, IonItem, IonLabel, IonList, IonNav, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonItem, IonLabel, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import React, { useEffect, useState } from 'react';
-import MissionInfoItem from '../components/MissionInfoItem';
 import './AllMissionsPage.css';
 import { Mission } from '../models/Mission';
 import { getMissions } from '../services/firestore';
-import { getWeekMissions } from '../services/firestore';
 
 
 const AllMissionsPage: React.FC = () => {
