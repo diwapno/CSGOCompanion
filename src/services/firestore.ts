@@ -1,5 +1,6 @@
 import firebase from "firebase"
 import { Mission } from "../models/Mission";
+import { Week } from "../models/Week";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCSU72kVVfw1fMNShOO2F9TBC8F_iPJHxQ",
@@ -23,4 +24,14 @@ export const getWeekMissions = async (week: number) => {
     return querySnapshot.docs.map((doc) => doc.data()) as Mission[];
 }
 
+export const getWeeks = async () => {
+    const querySnapshot = await db.collection("weeks").get();
+    return querySnapshot.docs.map((doc) => doc.data()) as Week[];
+}
+
+export const getWeekTitle = async (week: number) => {
+    const querySnapshot = await db.collection("weeks").where("week", "==", week).get();
+    const possibleWeeks = querySnapshot.docs.map((doc) => doc.data()) as Week[];
+    return possibleWeeks.pop();
+}
 // setMissions(querySnapshot.docs.map((doc) => doc.data()) as Mission[])

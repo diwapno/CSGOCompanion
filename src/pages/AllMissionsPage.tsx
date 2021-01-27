@@ -1,12 +1,12 @@
 import { IonContent, IonHeader, IonItem, IonLabel, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import React, { useEffect, useState } from 'react';
 import './AllMissionsPage.css';
-import { Mission } from '../models/Mission';
-import { getMissions } from '../services/firestore';
+import { Week } from '../models/Week';
+import { getWeeks } from '../services/firestore';
 
 
 const AllMissionsPage: React.FC = () => {
-    const [missions, setMissions] = useState<Mission[]>([]);
+    const [weeks, setWeeks] = useState<Week[]>([]);
 
     useEffect(() => {
 
@@ -17,28 +17,13 @@ const AllMissionsPage: React.FC = () => {
 
         //set loading true error false
         try {
-            const response = await getMissions();
-            setMissions(response);
+            const response = await getWeeks();
+            setWeeks(response);
         } catch (error) {
             //Set Error state
         }
         //set loading files
     }
-
-    function getWeeks() {
-
-        var weeksNumber: number[] = [0];
-
-        missions.forEach(mission => {
-            if (!(weeksNumber.indexOf(mission.week) > -1)) {
-                weeksNumber.push(mission.week);
-            }
-        });
-
-        return weeksNumber;
-    }
-
-    const weeks = getWeeks();
 
     return (
         <IonPage>
@@ -55,10 +40,10 @@ const AllMissionsPage: React.FC = () => {
                 </IonHeader>
                 <IonList className="center">
 
-                    {weeks.map((weeksNumber) => weeksNumber > 0 &&
-                        <IonItem type="button" routerLink={`/allmissions/${weeksNumber.toString()}`} >
+                    {weeks.map((week) => week.week > 0 &&
+                        <IonItem type="button" routerLink={`/allmissions/${week.week.toString()}`} detail={true}>
                             <IonLabel>
-                                <h1>Week {weeksNumber}</h1>
+                                <h2>Week {week.week} - {week.title}</h2>
                             </IonLabel>
                         </IonItem>
                     )}

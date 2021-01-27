@@ -31,7 +31,7 @@ const App: React.FC = () => (
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-          <Route path="/latest" component={LatestPage} exact={true} />
+          <Route path="/:tab(latest)" component={LatestPage} exact={true} />
           <Route path="/:tab(allmissions)" component={AllMissionsPage} exact={true} />
           <Route path="/:tab(allmissions)/:id" component={WeekDetailPage} />
           <Route path="/tab3" component={LatestPage} />
@@ -46,11 +46,6 @@ const App: React.FC = () => (
           <IonTabButton tab="allmissions" href="/allmissions">
             <IonIcon icon={calendar} />
             <IonLabel>All Missions</IonLabel>
-          </IonTabButton>
-
-          <IonTabButton tab="map" href="/tab3">
-            <IonIcon icon={map} />
-            <IonLabel>Map</IonLabel>
           </IonTabButton>
 
           <IonTabButton tab="about" href="/tab4">

@@ -22,7 +22,7 @@
 p{
     display: block; /* or inline-block, at least its a block element */
     height: auto; /* height cannot be defined */
-    word-break: break-all; /*  */
+    /* word-break: break-all;  */
     word-wrap: break-word; /* if you want to cut the complete word */
     white-space: normal; /* be sure its not 'nowrap'! ! ! :/ */
 }
