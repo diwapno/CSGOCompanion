@@ -3,7 +3,8 @@ import React, { useEffect, useState } from 'react';
 import MissionInfoItem from '../components/MissionInfoItem';
 import './LatestPage.css';
 import { Mission } from '../models/Mission';
-import { getWeekMissions } from '../services/firestore';
+import { getWeekMissions, getWeeks } from '../services/firestore';
+
 
 
 const LatestPage: React.FC = () => {
@@ -18,7 +19,8 @@ const LatestPage: React.FC = () => {
 
     //set loading true error false
     try {
-      const response = await getWeekMissions(1);
+      const weeks = await getWeeks();
+      const response = await getWeekMissions(weeks[weeks.length - 1].week);
       setMissions(response);
     } catch (error) {
       //Set Error state
