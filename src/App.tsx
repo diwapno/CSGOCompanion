@@ -25,6 +25,7 @@ import './theme/variables.css';
 import { informationCircle, calendar, time } from 'ionicons/icons';
 import AllMissionsPage from './pages/AllMissionsPage';
 import WeekDetailPage from './pages/WeekDetailPage';
+import AboutPage from './pages/AboutPage';
 
 const App: React.FC = () => (
   <IonApp>
@@ -34,7 +35,7 @@ const App: React.FC = () => (
           <Route path="/:tab(latest)" component={LatestPage} exact={true} />
           <Route path="/:tab(allmissions)" component={AllMissionsPage} exact={true} />
           <Route path="/:tab(allmissions)/:id" component={WeekDetailPage} />
-          <Route path="/tab3" component={LatestPage} />
+          <Route path="/:tab(about)" component={AboutPage} />
           <Route exact path="/" render={() => <Redirect to="/latest" />} />
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
@@ -48,7 +49,7 @@ const App: React.FC = () => (
             <IonLabel>All Missions</IonLabel>
           </IonTabButton>
 
-          <IonTabButton tab="about" href="/tab4">
+          <IonTabButton tab="about" href="/about">
             <IonIcon icon={informationCircle} />
             <IonLabel>About</IonLabel>
           </IonTabButton>
