@@ -1,6 +1,8 @@
-import firebase from "firebase"
-import { Mission } from "../models/Mission";
+import firebase from "firebase";
 import { Week } from "../models/Week";
+import { Plugins } from '@capacitor/core';
+
+const { Storage } = Plugins;
 
 const firebaseConfig = {
     apiKey: "AIzaSyCSU72kVVfw1fMNShOO2F9TBC8F_iPJHxQ",
@@ -14,24 +16,26 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
-export const getMissions = async () => {
-    const querySnapshot = await db.collection("missions").get();
-    return querySnapshot.docs.map((doc) => doc.data()) as Mission[];
-}
-
-export const getWeekMissions = async (week: number) => {
-    const querySnapshot = await db.collection("missions").where("week", "==", week).get();
-    return querySnapshot.docs.map((doc) => doc.data()) as Mission[];
-}
-
-export const getWeeks = async () => {
-    const querySnapshot = await db.collection("weeks").get();
+export const getMissionsFromFirestore = async () => {
+    const querySnapshot = await db.collection("newMissions").get();
     return querySnapshot.docs.map((doc) => doc.data()) as Week[];
 }
 
-export const getWeekTitle = async (week: number) => {
-    const querySnapshot = await db.collection("weeks").where("week", "==", week).get();
-    const possibleWeeks = querySnapshot.docs.map((doc) => doc.data()) as Week[];
-    return possibleWeeks.pop();
+export const getMissionsFromCache = async () => {
+
+    const ret = await Storage.get({ key: 'missions' });
+    if (ret.value) {
+        return JSON.parse(ret.value) as Week[];
+    }
+    return null;
 }
+
+export const setCachedMissions = async (weeks: Week[]) => {
+
+    await Storage.set({
+        key: 'missions',
+        value: JSON.stringify(weeks),
+    });
+}
+
 // setMissions(querySnapshot.docs.map((doc) => doc.data()) as Mission[])

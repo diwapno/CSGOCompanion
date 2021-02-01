@@ -65,6 +65,7 @@ const AboutPage: React.FC = () => {
 
                     <IonCardContent className="ion-text-center">
                         Please follow the link to my PayPal
+                        <br />
                         <IonButton fill="outline" href="https://paypal.me/rubenmagina">DONATE</IonButton>
                     </IonCardContent>
                 </IonCard>

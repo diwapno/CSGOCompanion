@@ -1,48 +1,36 @@
-import { IonContent, IonHeader, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import React, { useEffect, useState } from 'react';
+import { IonContent, IonHeader, IonList, IonListHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import React, { useContext, useEffect } from 'react';
 import MissionInfoItem from '../components/MissionInfoItem';
 import './LatestPage.css';
-import { Mission } from '../models/Mission';
-import { getWeekMissions, getWeeks } from '../services/firestore';
+import { MissionsContext } from '../models/MissionsContext';
+
 
 
 
 const LatestPage: React.FC = () => {
-  const [missions, setMissions] = useState<Mission[]>([]);
+  const context = useContext(MissionsContext);
 
   useEffect(() => {
 
-    loadData();
-  }, [])
-
-  const loadData = async () => {
-
-    //set loading true error false
-    try {
-      const weeks = await getWeeks();
-      const response = await getWeekMissions(weeks[weeks.length - 1].week);
-      setMissions(response);
-    } catch (error) {
-      //Set Error state
-    }
-    //set loading files
-  }
+    context.fetchWeeks(false);
+  }, [context])
 
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>CSGO Pet</IonTitle>
+          <IonTitle>Latest</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">CSGO Pet</IonTitle>
+            <IonTitle size="large">Latest</IonTitle>
           </IonToolbar>
         </IonHeader>
         <IonList className="center">
-          {missions.map((mission) => <MissionInfoItem key={mission.title}
+          <IonListHeader>This Week Missions</IonListHeader>
+          {context.weeks.length > 0 && context.weeks[context.weeks.length - 1].missions.map((mission) => <MissionInfoItem key={mission.title}
             title={mission.title}
             description={mission.description}
             stars={mission.stars}

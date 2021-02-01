@@ -1,29 +1,22 @@
 import { IonContent, IonHeader, IonItem, IonLabel, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import './AllMissionsPage.css';
-import { Week } from '../models/Week';
-import { getWeeks } from '../services/firestore';
+import { MissionsContext } from '../models/MissionsContext';
 
 
 const AllMissionsPage: React.FC = () => {
-    const [weeks, setWeeks] = useState<Week[]>([]);
+    const context = useContext(MissionsContext);
 
     useEffect(() => {
 
-        loadData();
-    }, [])
+        context.fetchWeeks(false);
+    }, [context])
 
-    const loadData = async () => {
+    // const loadData = async () => {
 
-        //set loading true error false
-        try {
-            const response = await getWeeks();
-            setWeeks(response);
-        } catch (error) {
-            //Set Error state
-        }
-        //set loading files
-    }
+    //     const weeks = await getMissionsFromFirestore();
+    //     context.setWeeks(weeks);
+    // };
 
     return (
         <IonPage>
@@ -40,10 +33,10 @@ const AllMissionsPage: React.FC = () => {
                 </IonHeader>
                 <IonList className="center">
 
-                    {weeks.map((week) => week.week > 0 &&
-                        <IonItem type="button" routerLink={`/allmissions/${week.week.toString()}`} detail={true}>
+                    {context.weeks.map((week) =>
+                        <IonItem type="button" routerLink={`/allmissions/${week.number.toString()}`} detail={true} key={week.name}>
                             <IonLabel>
-                                <h2>Week {week.week} - {week.title}</h2>
+                                <h2>Week {week.number} - {week.name}</h2>
                             </IonLabel>
                         </IonItem>
                     )}

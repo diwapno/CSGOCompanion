@@ -1,5 +1,8 @@
+import { Mission } from "./Mission";
+
 export interface Week {
 
-    title: string;
-    week: number;
+    name: string;
+    number: number;
+    missions: Mission[];
 }
