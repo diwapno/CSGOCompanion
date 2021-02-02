@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonBackButton, IonButtons, IonList } from '@ionic/react'
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonBackButton, IonButtons, IonList, IonListHeader } from '@ionic/react'
 import { RouteComponentProps } from 'react-router';
 import MissionInfoItem from '../components/MissionInfoItem';
 import { MissionsContext } from '../models/MissionsContext';
@@ -24,18 +24,19 @@ const WeekDetailPage: React.FC<WeekDetailPageProps> = ({ match }) => {
             <IonHeader>
                 <IonToolbar>
                     <IonButtons slot="start">
-                        <IonBackButton defaultHref="/:tab(allmissions)" text="" />
+                        <IonBackButton defaultHref="/allmissions" text="" />
                     </IonButtons>
-                    <IonTitle>{ }</IonTitle>
+                    <IonTitle>Week {match.params.id}</IonTitle>
                 </IonToolbar>
             </IonHeader>
             <IonContent fullscreen>
                 <IonHeader collapse="condense">
                     <IonToolbar>
-                        <IonTitle size="large">Week {match.params.id} - {week && week.name}</IonTitle>
+                        <IonTitle size="large">Week {match.params.id}</IonTitle>
                     </IonToolbar>
                 </IonHeader>
                 <IonList className="center">
+                    <IonListHeader>{week && week.name}</IonListHeader>
                     {week && week.missions.map((mission) => <MissionInfoItem key={mission.title}
                         title={mission.title}
                         description={mission.description}
