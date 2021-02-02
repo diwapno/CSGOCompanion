@@ -62,7 +62,7 @@ const AboutPage: React.FC = () => {
                     <IonCardContent>
                         Thanks for the help! Without you, this project wouldn't have gotten this far so "early".
                         <br />
-                        Lucas Cardinalli, thanks again and again!
+                        Lucas Cardinali, thanks again and again!
                     </IonCardContent>
                 </IonCard>
                 <IonCard mode="ios">
