@@ -1,5 +1,5 @@
 import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonHeader, IonIcon, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import { cash, codeWorking, pizza } from 'ionicons/icons';
+import { cash, codeWorking, peopleCircle, pizza } from 'ionicons/icons';
 import './LatestPage.css';
 import React from 'react';
 
@@ -27,7 +27,6 @@ const AboutPage: React.FC = () => {
                         </div></IonCardSubtitle>
                         <IonCardTitle>CSGO Pet</IonCardTitle>
                     </IonCardHeader>
-
                     <IonCardContent>
                         CSGO Pet is meant to help you following CSGO operations, starting with the most recent one: Broken Fang.
                         <br />
@@ -40,7 +39,6 @@ const AboutPage: React.FC = () => {
                             <div>WHAT LED ME HERE
                                         <IonIcon icon={pizza} slot="start" style={{ paddingLeft: 5 }} />
                             </div>
-
                         </IonCardSubtitle>
                         <IonCardTitle>Motivation</IonCardTitle>
                     </IonCardHeader>
@@ -55,14 +53,27 @@ const AboutPage: React.FC = () => {
                 <IonCard mode="ios">
                     <IonCardHeader>
                         <IonCardSubtitle>
+                            <div>HELPFUL HANDS
+                                <IonIcon icon={peopleCircle} slot="start" style={{ paddingLeft: 5 }} />
+                            </div>
+                        </IonCardSubtitle>
+                        <IonCardTitle>Contributor</IonCardTitle>
+                    </IonCardHeader>
+                    <IonCardContent>
+                        Thanks for the help! Without you, this project wouldn't have gotten this far so "early".
+                        <br />
+                        Lucas Cardinalli, thanks again and again!
+                    </IonCardContent>
+                </IonCard>
+                <IonCard mode="ios">
+                    <IonCardHeader>
+                        <IonCardSubtitle>
                             <div>HOW CAN YOU HELP
                                         <IonIcon icon={cash} slot="start" style={{ paddingLeft: 5 }} />
                             </div>
-
                         </IonCardSubtitle>
                         <IonCardTitle>If You Wish To Donate</IonCardTitle>
                     </IonCardHeader>
-
                     <IonCardContent className="ion-text-center">
                         Please follow the link to my PayPal
                         <br />
