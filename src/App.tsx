@@ -43,17 +43,17 @@ const App: React.FC = () => {
               <Route exact path="/" render={() => <Redirect to="/latest" />} />
             </IonRouterOutlet>
             <IonTabBar slot="bottom">
-              <IonTabButton tab="latest" href="/latest">
+              <IonTabButton tab="latest" href="/latest" key="latest">
                 <IonIcon icon={time} />
                 <IonLabel>Latest</IonLabel>
               </IonTabButton>
 
-              <IonTabButton tab="allmissions" href="/allmissions">
+              <IonTabButton tab="allmissions" href="/allmissions" key="allmissions">
                 <IonIcon icon={calendar} />
                 <IonLabel>All Missions</IonLabel>
               </IonTabButton>
 
-              <IonTabButton tab="about" href="/about">
+              <IonTabButton tab="about" href="/about" key="about">
                 <IonIcon icon={informationCircle} />
                 <IonLabel>About</IonLabel>
               </IonTabButton>
