@@ -13,7 +13,7 @@ const AboutPage: React.FC = () => {
                     <IonTitle>About</IonTitle>
                 </IonToolbar>
             </IonHeader>
-            <IonContent fullscreen>
+            <IonContent>
                 <IonHeader collapse="condense">
                     <IonToolbar>
                         <IonTitle size="large">About</IonTitle>
@@ -80,6 +80,7 @@ const AboutPage: React.FC = () => {
                         <IonButton fill="outline" href="https://paypal.me/rubenmagina">DONATE</IonButton>
                     </IonCardContent>
                 </IonCard>
+                <br />
             </IonContent>
         </IonPage >
     );

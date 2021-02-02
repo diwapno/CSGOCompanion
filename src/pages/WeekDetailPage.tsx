@@ -29,7 +29,7 @@ const WeekDetailPage: React.FC<WeekDetailPageProps> = ({ match }) => {
                     <IonTitle>Week {match.params.id}</IonTitle>
                 </IonToolbar>
             </IonHeader>
-            <IonContent fullscreen>
+            <IonContent>
                 <IonHeader collapse="condense">
                     <IonToolbar>
                         <IonTitle size="large">Week {match.params.id}</IonTitle>
