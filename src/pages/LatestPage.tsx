@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonList, IonListHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonList, IonListHeader, IonPage, IonRefresher, IonRefresherContent, IonTitle, IonToolbar } from '@ionic/react';
 import React, { useContext, useEffect } from 'react';
 import MissionInfoItem from '../components/MissionInfoItem';
 import './LatestPage.css';
@@ -15,6 +15,12 @@ const LatestPage: React.FC = () => {
     context.fetchWeeks(false);
   }, [context])
 
+  const doRefresh = async (event: CustomEvent) => {
+    
+    await context.fetchWeeks(true);
+    event.detail.complete();
+  }
+
   return (
     <IonPage>
       <IonHeader>
@@ -23,6 +29,9 @@ const LatestPage: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
+      <IonRefresher slot="fixed" onIonRefresh={doRefresh}>
+        <IonRefresherContent></IonRefresherContent>
+      </IonRefresher>
         <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">Latest</IonTitle>
