@@ -19,7 +19,7 @@ const AboutPage: React.FC = () => {
                         <IonTitle size="large">About</IonTitle>
                     </IonToolbar>
                 </IonHeader>
-                <IonCard mode="ios">
+                <IonCard mode="ios" className="center">
                     <IonCardHeader>
                         <IonCardSubtitle><div>
                             SMALL PROJECT
@@ -33,7 +33,7 @@ const AboutPage: React.FC = () => {
                         This is a "pet" project that might evolve over time and might support more information than just operations
                     </IonCardContent>
                 </IonCard>
-                <IonCard mode="ios">
+                <IonCard mode="ios" className="center">
                     <IonCardHeader>
                         <IonCardSubtitle>
                             <div>WHAT LED ME HERE
@@ -50,7 +50,7 @@ const AboutPage: React.FC = () => {
                         new technologies along the way.
                     </IonCardContent>
                 </IonCard>
-                <IonCard mode="ios">
+                <IonCard mode="ios" className="center">
                     <IonCardHeader>
                         <IonCardSubtitle>
                             <div>HELPFUL HANDS
@@ -65,7 +65,7 @@ const AboutPage: React.FC = () => {
                         Lucas Cardinali, thanks again and again!
                     </IonCardContent>
                 </IonCard>
-                <IonCard mode="ios">
+                <IonCard mode="ios" className="center">
                     <IonCardHeader>
                         <IonCardSubtitle>
                             <div>HOW CAN YOU HELP

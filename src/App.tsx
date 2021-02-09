@@ -2,8 +2,13 @@ import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
+import { informationCircle, calendar, time } from 'ionicons/icons';
 import LatestPage from './pages/LatestPage';
+import AllMissionsPage from './pages/AllMissionsPage';
+import WeekDetailPage from './pages/WeekDetailPage';
+import AboutPage from './pages/AboutPage';
 import { MissionsContextProvider } from './models/MissionsContext';
+
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -23,10 +28,7 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import { informationCircle, calendar, time } from 'ionicons/icons';
-import AllMissionsPage from './pages/AllMissionsPage';
-import WeekDetailPage from './pages/WeekDetailPage';
-import AboutPage from './pages/AboutPage';
+import './App.css';
 
 const App: React.FC = () => {
 
