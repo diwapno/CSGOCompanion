@@ -9,7 +9,7 @@ const AllMissionsPage: React.FC = () => {
 
     useEffect(() => {
 
-        context.fetchWeeks(false);
+        context.fetchContent(false);
     }, [context])
 
     // const loadData = async () => {
@@ -33,7 +33,7 @@ const AllMissionsPage: React.FC = () => {
                 </IonHeader>
                 <IonList className="center">
 
-                    {context.weeks.map((week) =>
+                    {context.appContent.weeks.map((week) =>
                         <IonItem type="button" routerLink={`/allmissions/${week.number.toString()}`} detail={true} key={week.name}>
                             <IonLabel>
                                 <h2>Week {week.number} - {week.name}</h2>

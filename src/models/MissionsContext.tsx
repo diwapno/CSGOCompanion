@@ -1,35 +1,40 @@
 import React, { useState } from 'react';
-import { getMissionsFromCache, getMissionsFromFirestore, setCachedMissions } from '../services/firestore';
-import { Week } from './Week';
+import { getContentFromFirestore, setCachedContent } from '../services/firestore';
+import { AppContent } from './AppContent';
 
 export interface MissionContextProps {
-    weeks: Week[];
-    fetchWeeks: (refresh: boolean) => void;
+    appContent: AppContent;
+    fetchContent: (refresh: boolean) => void;
 }
 
-export const MissionsContext = React.createContext<MissionContextProps>({ weeks: [], fetchWeeks: () => { } });
+export const mockAppContent: AppContent = {
+    weeks: [],
+    pages: new Map(),
+}
+
+export const MissionsContext = React.createContext<MissionContextProps>({ appContent: mockAppContent, fetchContent: () => { } });
 
 export const MissionsContextProvider: React.FC = ({ children }) => {
 
-    const [weeks, setWeeks] = useState<Week[]>([]);
+    const [content, setContent] = useState<AppContent>(mockAppContent);
 
-    const fetchWeeksFireStore = async (refresh: boolean) => {
+    const fetchContentFireStore = async (refresh: boolean) => {
 
-        if (weeks.length === 0 || refresh) {
+        if (content.weeks.length === 0 || refresh) {
 
-            const cachedWeeks = await getMissionsFromCache();
+            const cachedContent = await getContentFromFirestore();
 
-            if (cachedWeeks) {
-                setWeeks(cachedWeeks);
+            if (cachedContent) {
+                setContent(cachedContent);
             }
 
-            const newWeeks = await getMissionsFromFirestore();
-            setCachedMissions(newWeeks);
-            setWeeks(newWeeks);
+            const newContent = await getContentFromFirestore();
+            setCachedContent(newContent);
+            setContent(newContent);
         }
     };
 
     return (
-        <MissionsContext.Provider value={{ weeks: weeks, fetchWeeks: fetchWeeksFireStore }}>{children}</MissionsContext.Provider>
+        <MissionsContext.Provider value={{ appContent: content, fetchContent: fetchContentFireStore }}>{children}</MissionsContext.Provider>
     );
 };

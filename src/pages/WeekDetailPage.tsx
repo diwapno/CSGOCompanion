@@ -14,10 +14,10 @@ const WeekDetailPage: React.FC<WeekDetailPageProps> = ({ match }) => {
 
     useEffect(() => {
 
-        context.fetchWeeks(false);
+        context.fetchContent(false);
     }, [context])
 
-    const week = context.weeks[Number(match.params.id) - 1];
+    const week = context.appContent.weeks[Number(match.params.id) - 1];
 
     return (
         <IonPage>
